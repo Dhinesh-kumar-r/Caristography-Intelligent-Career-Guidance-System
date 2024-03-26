@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Career Recommendation Quiz</title>
+  </head>
+  <body>
+    <h1>Career Recommendation Quiz</h1>
+    <form>
+      <h2>Question 1: What are your interests?</h2>
+      <input type="radio" name="q1" value="1">Technology<br>
+      <input type="radio" name="q1" value="2">Art and Design<br>
+      <input type="radio" name="q1" value="3">Healthcare<br>
+      <input type="radio" name="q1" value="4">Business<br>
+
+      <h2>Question 2: What are your skills?</h2>
+      <input type="radio" name="q2" value="1">Programming<br>
+      <input type="radio" name="q2" value="2">Graphic Design<br>
+      <input type="radio" name="q2" value="3">Nursing<br>
+      <input type="radio" name="q2" value="4">Marketing<br>
+
+      <h2>Question 3: What is your personality type?</h2>
+      <input type="radio" name="q3" value="1">Introverted<br>
+      <input type="radio" name="q3" value="2">Creative<br>
+      <input type="radio" name="q3" value="3">Compassionate<br>
+      <input type="radio" name="q3" value="4">Assertive<br>
+
+      <input type="button" class="submit" value="Submit" onclick="recommendCareer()">
+    </form>
+    <p id="result"></p>
+  </body>
+  <style >
+
+h2 {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 2px 2px #888888;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+#quiz {
+  margin-bottom: 20px;
+}
+
+.submit {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#results {
+  margin-top: 20px;
+}
+
+  </style>
+  <script type="text/javascript">
+  
+  function recommendCareer() {
+  var q1 = document.querySelector('input[name="q1"]:checked').value;
+  var q2 = document.querySelector('input[name="q2"]:checked').value;
+  var q3 = document.querySelector('input[name="q3"]:checked').value;
+
+  var career = "";
+  var score = 0;
+
+  if (q1 == "1" && q2 == "1" && q3 == "1") {
+    career = "Software Developer";
+    score = 3;
+  } else if (q1 == "2" && q2 == "2" && q3 == "2") {
+    career = "Graphic Designer";
+    score = 3;
+  } else if (q1 == "3" && q2 == "3" && q3 == "3") {
+    career = "Nurse";
+    score = 3;
+  } else if (q1 == "4" && q2 == "4" && q3 == "4") {
+    career = "Marketing Manager";
+    score = 3;
+  } else {
+    career = "None";
+  }
+
+  if (score > 0) {
+    document.getElementById("result").innerHTML = "Based on your answers, we recommend a career in " + career + ".";
+  } else {
+    document.getElementById("result").innerHTML = "Based on your answers, we could not recommend a career for you.";
+  }
+}
+
+  </script>
+</html>
